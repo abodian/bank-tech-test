@@ -56,7 +56,7 @@ describe("BankAccount class", () => {
     expect(console.error).toHaveBeenCalledTimes(1);
   });
 
-  it("prints statement with mocked date", () => {
+  it("prints statement with given date", () => {
     bankAccount.deposit(100, "01/01/2022");
     bankAccount.withdraw(50, "01/01/2022");
 
@@ -65,6 +65,24 @@ describe("BankAccount class", () => {
       "date || credit || debit || balance"
     );
     expect(consoleSpy).toHaveBeenCalledWith("01/01/2022 ||  || 50.00 || 50.00");
+    expect(consoleSpy).toHaveBeenCalledWith(
+      "01/01/2022 || 100.00 ||  || 100.00"
+    );
+  });
+
+  it("prints statement with given dates in reverse choronological order", () => {
+    bankAccount.deposit(100, "01/01/2022");
+    bankAccount.withdraw(25, "05/01/2022");
+    bankAccount.deposit(50, "10/01/2023");
+
+    bankAccount.printStatement();
+    expect(consoleSpy).toHaveBeenCalledWith(
+      "date || credit || debit || balance"
+    );
+    expect(consoleSpy).toHaveBeenCalledWith(
+      "10/01/2023 || 50.00 ||  || 125.00"
+    );
+    expect(consoleSpy).toHaveBeenCalledWith("05/01/2022 ||  || 25.00 || 75.00");
     expect(consoleSpy).toHaveBeenCalledWith(
       "01/01/2022 || 100.00 ||  || 100.00"
     );

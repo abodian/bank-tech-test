@@ -14,15 +14,21 @@ class BankAccount {
   printStatement() {
     console.log("date || credit || debit || balance");
 
-    this.accountStatement.forEach((element) => {
-      const credit = element.credit !== null ? element.credit.toFixed(2) : "";
-      const debit = element.debit !== null ? element.debit.toFixed(2) : "";
-      console.log(
-        `${element.date} || ${credit} || ${debit} || ${element.balance.toFixed(
-          2
-        )}`
-      );
-    });
+    this.accountStatement
+      .sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateB - dateA;
+      })
+      .forEach((element) => {
+        const credit = element.credit !== null ? element.credit.toFixed(2) : "";
+        const debit = element.debit !== null ? element.debit.toFixed(2) : "";
+        console.log(
+          `${
+            element.date
+          } || ${credit} || ${debit} || ${element.balance.toFixed(2)}`
+        );
+      });
   }
 
   getDate(manualDate) {
