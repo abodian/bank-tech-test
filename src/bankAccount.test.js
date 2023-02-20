@@ -1,18 +1,27 @@
 const BankAccount = require("./bankAccount");
 const Transaction = require("./transaction");
-jest.mock("./transaction");
+jest.mock("./transaction", () => {
+  return jest.fn().mockImplementation((date, debit, credit, balance) => {
+    return {
+      date,
+      debit,
+      credit,
+      balance
+    };
+  });
+});
 console.error = jest.fn();
 const consoleSpy = jest.spyOn(console, "log");
 
 describe("BankAccount class", () => {
   let bankAccount;
   beforeEach(() => {
+    bankAccount = new BankAccount();
     Transaction.mockClear();
     console.error.mockClear();
+    consoleSpy.mockClear();
     bankAccount.accountBalance = 0;
   });
-
-  bankAccount = new BankAccount();
 
   it("returns balance of 0 when printBalance() called", () => {
     expect(bankAccount.printBalance()).toBe(0);
@@ -47,7 +56,18 @@ describe("BankAccount class", () => {
     expect(console.error).toHaveBeenCalledTimes(1);
   });
 
+  it("prints statement with mocked date", () => {
+    const fixedDate = new Date("2022-01-01T00:00:00.000Z");
+    const bankAccount = new BankAccount(fixedDate);
 
+    bankAccount.deposit(100);
+    bankAccount.withdraw(50);
+
+    bankAccount.printStatement();
+    expect(consoleSpy).toHaveBeenCalledWith(
+      "date || credit || debit || balance"
+    );
+    expect(consoleSpy).toHaveBeenCalledWith("01/01/2022 ||  || 50 || 50");
+    expect(consoleSpy).toHaveBeenCalledWith("01/01/2022 || 100 ||  || 100");
+  });
 });
-
-// 5. prints statement including the above transactions (mock dependency on transaction)
