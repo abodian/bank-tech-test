@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable prettier/prettier */
 const Transaction = require('./transaction');
 
 class BankAccount {
@@ -56,6 +58,7 @@ class BankAccount {
             amount,
             (this.accountBalance += amount)
         );
+        // eslint-disable-next-line no-unused-expressions
         amount === 0
             ? console.error('Please deposit an amount above zero')
             : this.accountStatement.push(transaction);
@@ -69,6 +72,7 @@ class BankAccount {
             null,
             (this.accountBalance -= amount)
         );
+        // eslint-disable-next-line no-unused-expressions
         amount > this.accountBalance
             ? console.error('Funds not available, please try a lower amount')
             : this.accountStatement.push(transaction);

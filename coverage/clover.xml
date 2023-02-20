@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676927616249" clover="3.2.0">
-  <project timestamp="1676927616249" name="All files">
+<coverage generated="1676928040365" clover="3.2.0">
+  <project timestamp="1676928040365" name="All files">
     <metrics statements="30" coveredstatements="30" conditionals="10" coveredconditionals="10" methods="9" coveredmethods="9" elements="49" coveredelements="49" complexity="0" loc="30" ncloc="30" packages="1" files="2" classes="2"/>
     <file name="bankAccount.js" path="/Users/abod/MA/MA-Projects/practice-tect-tests/bank-tech-test/src/bankAccount.js">
       <metrics statements="25" coveredstatements="25" conditionals="10" coveredconditionals="10" methods="8" coveredmethods="8"/>
