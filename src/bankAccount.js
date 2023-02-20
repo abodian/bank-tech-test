@@ -1,3 +1,5 @@
+const Transaction = require("./transaction");
+
 class BankAccount {
   constructor() {
     this.accountBalance = 0;
@@ -10,6 +12,16 @@ class BankAccount {
 
   printStatement() {
     return this.accountStatement;
+  }
+
+  deposit(amount) {
+    const transaction = new Transaction(
+      Date.now(),
+      null,
+      amount,
+      (this.accountBalance += amount)
+    );
+    this.accountStatement.push(transaction);
   }
 }
 
