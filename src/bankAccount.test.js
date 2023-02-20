@@ -87,4 +87,10 @@ describe("BankAccount class", () => {
       "01/01/2022 || 100.00 ||  || 100.00"
     );
   });
+
+  it("it gets the current date in the correct format", () => {
+    bankAccount.getDate("20/02/2023");
+
+    expect(bankAccount.date).toEqual("20/02/2023");
+  });
 });

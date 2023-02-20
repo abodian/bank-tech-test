@@ -37,7 +37,7 @@ class BankAccount {
       month: "2-digit",
       year: "numeric"
     });
-    manualDate === null ? (this.date = date) : (this.date = manualDate);
+    manualDate === undefined ? (this.date = date) : (this.date = manualDate);
   }
 
   deposit(amount, manualDate) {
