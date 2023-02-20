@@ -23,6 +23,16 @@ class BankAccount {
     );
     this.accountStatement.push(transaction);
   }
+
+  withdraw(amount) {
+    const transaction = new Transaction(
+      Date.now(),
+      amount,
+      null,
+      (this.accountBalance -= amount)
+    );
+    this.accountStatement.push(transaction);
+  }
 }
 
 module.exports = BankAccount;

@@ -6,6 +6,7 @@ describe("BankAccount class", () => {
   let bankAccount;
   beforeEach(() => {
     Transaction.mockClear();
+    bankAccount.accountBalance = 0;
   });
 
   bankAccount = new BankAccount();
