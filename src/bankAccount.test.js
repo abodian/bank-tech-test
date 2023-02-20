@@ -2,6 +2,7 @@ const BankAccount = require("./bankAccount");
 const Transaction = require("./transaction");
 jest.mock("./transaction");
 console.error = jest.fn();
+const consoleSpy = jest.spyOn(console, "log");
 
 describe("BankAccount class", () => {
   let bankAccount;
@@ -17,8 +18,11 @@ describe("BankAccount class", () => {
     expect(bankAccount.printBalance()).toBe(0);
   });
 
-  it("returns an empty array when printStatement() is called", () => {
-    expect(bankAccount.printStatement()).toEqual([]);
+  it("prints the first line of the statement column names", () => {
+    bankAccount.printStatement();
+    expect(consoleSpy).toHaveBeenCalledWith(
+      "date || credit || debit || balance"
+    );
   });
 
   it("deposits 500 and prints balance", () => {
@@ -42,6 +46,8 @@ describe("BankAccount class", () => {
     bankAccount.withdraw(300);
     expect(console.error).toHaveBeenCalledTimes(1);
   });
+
+
 });
 
 // 5. prints statement including the above transactions (mock dependency on transaction)
