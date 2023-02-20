@@ -3,7 +3,7 @@ const Transaction = require("./transaction");
 class BankAccount {
   constructor() {
     this.accountBalance = 0;
-    this.accountStatement = [["date || credit || debit || balance"]];
+    this.accountStatement = [];
   }
 
   printBalance() {
@@ -11,9 +11,7 @@ class BankAccount {
   }
 
   printStatement() {
-    this.accountStatement.forEach((element) => {
-      console.log(element.join(","));
-    });
+    console.log("date || credit || debit || balance");
   }
 
   deposit(amount) {
