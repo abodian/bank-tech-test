@@ -19,10 +19,12 @@ class BankAccount {
     console.log("date || credit || debit || balance");
 
     this.accountStatement.forEach((element) => {
-      const credit = element.credit !== null ? element.credit : "";
-      const debit = element.debit !== null ? element.debit : "";
+      const credit = element.credit !== null ? element.credit.toFixed(2) : "";
+      const debit = element.debit !== null ? element.debit.toFixed(2) : "";
       console.log(
-        `${element.date} || ${credit} || ${debit} || ${element.balance}`
+        `${element.date} || ${credit} || ${debit} || ${element.balance.toFixed(
+          2
+        )}`
       );
     });
   }

@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676909160597" clover="3.2.0">
-  <project timestamp="1676909160597" name="All files">
+<coverage generated="1676909839191" clover="3.2.0">
+  <project timestamp="1676909839191" name="All files">
     <metrics statements="20" coveredstatements="20" conditionals="9" coveredconditionals="9" methods="7" coveredmethods="7" elements="36" coveredelements="36" complexity="0" loc="20" ncloc="20" packages="1" files="2" classes="2"/>
     <file name="bankAccount.js" path="/Users/abod/MA/MA-Projects/practice-tect-tests/bank-tech-test/src/bankAccount.js">
       <metrics statements="15" coveredstatements="15" conditionals="9" coveredconditionals="9" methods="6" coveredmethods="6"/>
-      <line num="1" count="1" type="stmt"/>
-      <line num="5" count="8" type="stmt"/>
-      <line num="6" count="8" type="stmt"/>
-      <line num="7" count="8" type="stmt"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="5" count="10" type="stmt"/>
+      <line num="6" count="10" type="stmt"/>
+      <line num="7" count="10" type="stmt"/>
       <line num="15" count="3" type="stmt"/>
-      <line num="19" count="2" type="stmt"/>
-      <line num="21" count="2" type="stmt"/>
-      <line num="22" count="2" type="cond" truecount="2" falsecount="0"/>
-      <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
-      <line num="24" count="2" type="stmt"/>
-      <line num="31" count="5" type="stmt"/>
-      <line num="37" count="5" type="cond" truecount="2" falsecount="0"/>
-      <line num="43" count="3" type="stmt"/>
-      <line num="49" count="3" type="cond" truecount="2" falsecount="0"/>
-      <line num="55" count="1" type="stmt"/>
+      <line num="19" count="3" type="stmt"/>
+      <line num="21" count="3" type="stmt"/>
+      <line num="22" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="23" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="24" count="4" type="stmt"/>
+      <line num="33" count="6" type="stmt"/>
+      <line num="39" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="45" count="4" type="stmt"/>
+      <line num="51" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="57" count="2" type="stmt"/>
     </file>
     <file name="transaction.js" path="/Users/abod/MA/MA-Projects/practice-tect-tests/bank-tech-test/src/transaction.js">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="4" count="1" type="stmt"/>
-      <line num="5" count="1" type="stmt"/>
-      <line num="6" count="1" type="stmt"/>
-      <line num="10" count="1" type="stmt"/>
+      <line num="3" count="4" type="stmt"/>
+      <line num="4" count="4" type="stmt"/>
+      <line num="5" count="4" type="stmt"/>
+      <line num="6" count="4" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>

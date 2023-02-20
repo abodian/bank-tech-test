@@ -67,7 +67,9 @@ describe("BankAccount class", () => {
     expect(consoleSpy).toHaveBeenCalledWith(
       "date || credit || debit || balance"
     );
-    expect(consoleSpy).toHaveBeenCalledWith("01/01/2022 ||  || 50 || 50");
-    expect(consoleSpy).toHaveBeenCalledWith("01/01/2022 || 100 ||  || 100");
+    expect(consoleSpy).toHaveBeenCalledWith("01/01/2022 ||  || 50.00 || 50.00");
+    expect(consoleSpy).toHaveBeenCalledWith(
+      "01/01/2022 || 100.00 ||  || 100.00"
+    );
   });
 });
