@@ -33,7 +33,9 @@ class BankAccount {
       null,
       (this.accountBalance -= amount)
     );
-    this.accountStatement.push(transaction);
+    amount > this.accountBalance
+      ? console.error("Funds not available, please try a lower amount")
+      : this.accountStatement.push(transaction);
   }
 }
 

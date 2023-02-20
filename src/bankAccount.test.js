@@ -7,6 +7,7 @@ describe("BankAccount class", () => {
   let bankAccount;
   beforeEach(() => {
     Transaction.mockClear();
+    console.error.mockClear();
     bankAccount.accountBalance = 0;
   });
 
@@ -33,6 +34,12 @@ describe("BankAccount class", () => {
 
   it("gives an error if you try to deposit 0", () => {
     bankAccount.deposit(0);
+    expect(console.error).toHaveBeenCalledTimes(1);
+  });
+
+  it("gives an error if you try to withdraw more than your account balance", () => {
+    bankAccount.deposit(200);
+    bankAccount.withdraw(300);
     expect(console.error).toHaveBeenCalledTimes(1);
   });
 });
