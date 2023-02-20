@@ -1,6 +1,7 @@
 const BankAccount = require("./bankAccount");
 const Transaction = require("./transaction");
 jest.mock("./transaction");
+console.error = jest.fn();
 
 describe("BankAccount class", () => {
   let bankAccount;
@@ -29,8 +30,11 @@ describe("BankAccount class", () => {
     bankAccount.withdraw(250);
     expect(bankAccount.printBalance()).toEqual(250);
   });
+
+  it("gives an error if you try to deposit 0", () => {
+    bankAccount.deposit(0);
+    expect(console.error).toHaveBeenCalledTimes(1);
+  });
 });
 
-// 3. deposits 500 and prints balance (mock dependency on transaction)
-// 4. withdraws 250 and prints balance (mock dependency on transaction)
 // 5. prints statement including the above transactions (mock dependency on transaction)

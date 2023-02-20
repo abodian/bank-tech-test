@@ -21,7 +21,9 @@ class BankAccount {
       amount,
       (this.accountBalance += amount)
     );
-    this.accountStatement.push(transaction);
+    amount === 0
+      ? console.error("Please deposit an amount above zero")
+      : this.accountStatement.push(transaction);
   }
 
   withdraw(amount) {
