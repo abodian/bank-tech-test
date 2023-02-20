@@ -88,9 +88,21 @@ describe("BankAccount class", () => {
     );
   });
 
-  it("it gets the current date in the correct format", () => {
+  it("it updates this.date with a given date in the correct format", () => {
     bankAccount.getDate("20/02/2023");
 
     expect(bankAccount.date).toEqual("20/02/2023");
+  });
+
+  it("it gets the current date in the correct format and updates in the correct format", () => {
+    bankAccount.getDate();
+
+    expect(bankAccount.date).toEqual(
+      new Date().toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+      })
+    );
   });
 });
