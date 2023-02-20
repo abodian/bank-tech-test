@@ -1,14 +1,10 @@
 const Transaction = require("./transaction");
 
 class BankAccount {
-  constructor(date = new Date()) {
+  constructor() {
     this.accountBalance = 0;
     this.accountStatement = [];
-    this.date = date.toLocaleDateString("en-GB", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric"
-    });
+    this.date = "";
   }
 
   printBalance() {
@@ -29,7 +25,17 @@ class BankAccount {
     });
   }
 
-  deposit(amount) {
+  getDate(manualDate) {
+    const date = new Date().toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric"
+    });
+    manualDate === null ? (this.date = date) : (this.date = manualDate);
+  }
+
+  deposit(amount, manualDate) {
+    this.getDate(manualDate);
     const transaction = new Transaction(
       this.date,
       null,
@@ -41,7 +47,8 @@ class BankAccount {
       : this.accountStatement.push(transaction);
   }
 
-  withdraw(amount) {
+  withdraw(amount, manualDate) {
+    this.getDate(manualDate);
     const transaction = new Transaction(
       this.date,
       amount,

@@ -12,11 +12,8 @@ describe("integration test of BankAccount and Transaction", () => {
     bankAccount.accountBalance = 0;
   });
   it("deposits, withdraws and prints statement", () => {
-    const fixedDate = new Date("2022-01-01T00:00:00.000Z");
-    const bankAccount = new BankAccount(fixedDate);
-
-    bankAccount.deposit(100);
-    bankAccount.withdraw(50);
+    bankAccount.deposit(100, "01/01/2022");
+    bankAccount.withdraw(50, "01/01/2022");
 
     bankAccount.printStatement();
     expect(consoleSpy).toHaveBeenCalledWith(
