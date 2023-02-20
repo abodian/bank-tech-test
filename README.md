@@ -1,20 +1,20 @@
-# bank-tech-test
+# Bank Tech Test
 
 ## Approach
 
 Planning consisted of:
 
-- User stories written
-- Classes and functions illustrated on wireframe.cc
-- Test templates were written with edge cases considered
+-   User stories written
+-   Classes and functions illustrated on wireframe.cc
+-   Test templates were written with edge cases considered
 
 ## Structure
 
-- Two classes: BankAccount, and a model class Transaction
-- As this is a simple program I believed it to be counter-intuitive to complicate matters with more than two classes.
-- The Transaction class handles a single transaction (date, deposit, withdrawal, balance)
-- The BankAccount class tracks the overall balance, manages instances of Transaction and ultimately logs the statement to the console.
-- I had considered creating a Date class due to JS not having a concise way to display DD/MM/YYY however in the end I settled with a simple function that handled that formatting, which I did think complicated the BankAccount class too much. If the app was to be expanded then I would consider a date/timestamp class with appropriate functions.
+-   Two classes: BankAccount, and a model class Transaction
+-   As this is a simple program I believed it to be counter-intuitive to complicate matters with more than two classes.
+-   The Transaction class handles a single transaction (date, deposit, withdrawal, balance)
+-   The BankAccount class tracks the overall balance, manages instances of Transaction and ultimately logs the statement to the console.
+-   I had considered creating a Date class due to JS not having a concise way to display DD/MM/YYY however in the end I settled with a simple function that handled that formatting, which I did think complicated the BankAccount class too much. If the app was to be expanded then I would consider a date/timestamp class with appropriate functions.
 
 ## Install and Run the Code
 
@@ -64,7 +64,16 @@ jest
 
 ## Dependencies
 
-- Testing => jest ~ 29.4.3
-- Lint => eslint-config-prettier ~ 8.6.0
+-   Testing => jest ~ 29.4.3
+-   Lint:
+    eslint => 8.34.0,<br />
+    eslint-config-airbnb-base => 15.0.0,<br />
+    eslint-config-prettier => 8.6.0,<br />
+    eslint-plugin-import => 2.27.5,<br />
+    prettier => 2.8.4
 
 ## Screenshots
+
+Please see:
+
+./images

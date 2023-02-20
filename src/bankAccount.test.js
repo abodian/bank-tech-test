@@ -76,21 +76,20 @@ describe('BankAccount class', () => {
         expect(consoleSpy).toHaveBeenCalledWith('01/01/2022 || 100.00 ||  || 100.00');
     });
 
-    it('it updates this.date with a given date in the correct format', () => {
-        bankAccount.getDate('20/02/2023');
+    it('updates this.date with a given date in the correct format', () => {
+        const dateStr = '20/02/2023';
+        const expectedDate = new Date(Date.UTC(2023, 1, 20)).toISOString();
 
-        expect(bankAccount.date).toEqual('20/02/2023');
+        bankAccount.getDate(dateStr);
+
+        expect(bankAccount.date.toISOString()).toContain(expectedDate);
     });
 
-    it('it gets the current date in the correct format and updates in the correct format', () => {
+    it('gets the current date in the correct format and updates in the correct format', () => {
+        const expectedDate = new Date().toISOString();
+
         bankAccount.getDate();
 
-        expect(bankAccount.date).toEqual(
-            new Date().toLocaleDateString('en-GB', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric'
-            })
-        );
+        expect(bankAccount.date.toISOString()).toContain(expectedDate);
     });
 });

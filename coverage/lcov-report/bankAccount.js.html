@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>25/25</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>25/25</span>
             </div>
         
             
@@ -133,7 +133,15 @@
 <a name='L68'></a><a href='#L68'>68</a>
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,16 +158,16 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,6 +176,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -203,73 +219,81 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const Transaction = require("./transaction");
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const Transaction = require('./transaction');
 &nbsp;
 class BankAccount {
-  constructor() {
-    this.accountBalance = 0;
-    this.accountStatement = [];
-    this.date = "";
-  }
+    constructor() {
+        this.accountBalance = 0;
+        this.accountStatement = [];
+        this.date = '';
+    }
 &nbsp;
-  printBalance() {
-    return this.accountBalance;
-  }
+    printBalance() {
+        return this.accountBalance;
+    }
 &nbsp;
-  printStatement() {
-    console.log("date || credit || debit || balance");
+    printStatement() {
+        console.log('date || credit || debit || balance');
 &nbsp;
-    this.accountStatement
-      .sort((a, b) =&gt; {
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-        return dateB - dateA;
-      })
-      .forEach((element) =&gt; {
-        const credit = element.credit !== null ? element.credit.toFixed(2) : "";
-        const debit = element.debit !== null ? element.debit.toFixed(2) : "";
-        console.log(
-          `${
-            element.date
-          } || ${credit} || ${debit} || ${element.balance.toFixed(2)}`
+        this.accountStatement
+            .sort((a, b) =&gt; new Date(b.date) - new Date(a.date))
+            .forEach((element) =&gt; {
+                const credit = element.credit !== null ? element.credit.toFixed(2) : '';
+                const debit = element.debit !== null ? element.debit.toFixed(2) : '';
+                const formattedDate = element.date.toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
+                console.log(
+                    `${formattedDate} || ${credit} || ${debit} || ${element.balance.toFixed(2)}`
+                );
+            });
+    }
+&nbsp;
+    getDate(manualDate) {
+        let dateObj;
+        if (manualDate) {
+            const dateParts = manualDate.split('/');
+            const dateStr = `${dateParts[1]}/${dateParts[0]}/${dateParts[2]}`;
+&nbsp;
+            dateObj = new Date(dateStr);
+        } else {
+            dateObj = new Date();
+        }
+        // const formattedDate = dateObj.toLocaleDateString('en-GB', {
+        //     day: '2-digit',
+        //     month: '2-digit',
+        //     year: 'numeric'
+        // });
+        this.date = dateObj;
+    }
+&nbsp;
+    deposit(amount, manualDate) {
+        this.getDate(manualDate);
+        const transaction = new Transaction(
+            this.date,
+            null,
+            amount,
+            (this.accountBalance += amount)
         );
-      });
-  }
+        amount === 0
+            ? console.error('Please deposit an amount above zero')
+            : this.accountStatement.push(transaction);
+    }
 &nbsp;
-  getDate(manualDate) {
-    const date = new Date().toLocaleDateString("en-GB", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric"
-    });
-    manualDate === undefined ? (this.date = date) : (this.date = manualDate);
-  }
-&nbsp;
-  deposit(amount, manualDate) {
-    this.getDate(manualDate);
-    const transaction = new Transaction(
-      this.date,
-      null,
-      amount,
-      (this.accountBalance += amount)
-    );
-    amount === 0
-      ? console.error("Please deposit an amount above zero")
-      : this.accountStatement.push(transaction);
-  }
-&nbsp;
-  withdraw(amount, manualDate) {
-    this.getDate(manualDate);
-    const transaction = new Transaction(
-      this.date,
-      amount,
-      null,
-      (this.accountBalance -= amount)
-    );
-    amount &gt; this.accountBalance
-      ? console.error("Funds not available, please try a lower amount")
-      : this.accountStatement.push(transaction);
-  }
+    withdraw(amount, manualDate) {
+        this.getDate(manualDate);
+        const transaction = new Transaction(
+            this.date,
+            amount,
+            null,
+            (this.accountBalance -= amount)
+        );
+        amount &gt; this.accountBalance
+            ? console.error('Funds not available, please try a lower amount')
+            : this.accountStatement.push(transaction);
+    }
 }
 &nbsp;
 module.exports = BankAccount;
@@ -280,7 +304,7 @@ module.exports = BankAccount;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-20T16:52:40.014Z
+                at 2023-02-20T21:13:36.243Z
             </div>
         <script src="prettify.js"></script>
         <script>

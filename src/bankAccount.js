@@ -15,27 +15,37 @@ class BankAccount {
         console.log('date || credit || debit || balance');
 
         this.accountStatement
-            .sort((a, b) => {
-                const dateA = new Date(a.date);
-                const dateB = new Date(b.date);
-                return dateB - dateA;
-            })
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
             .forEach((element) => {
                 const credit = element.credit !== null ? element.credit.toFixed(2) : '';
                 const debit = element.debit !== null ? element.debit.toFixed(2) : '';
+                const formattedDate = element.date.toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
                 console.log(
-                    `${element.date} || ${credit} || ${debit} || ${element.balance.toFixed(2)}`
+                    `${formattedDate} || ${credit} || ${debit} || ${element.balance.toFixed(2)}`
                 );
             });
     }
 
     getDate(manualDate) {
-        const date = new Date().toLocaleDateString('en-GB', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric'
-        });
-        manualDate === undefined ? (this.date = date) : (this.date = manualDate);
+        let dateObj;
+        if (manualDate) {
+            const dateParts = manualDate.split('/');
+            const dateStr = `${dateParts[1]}/${dateParts[0]}/${dateParts[2]}`;
+
+            dateObj = new Date(dateStr);
+        } else {
+            dateObj = new Date();
+        }
+        // const formattedDate = dateObj.toLocaleDateString('en-GB', {
+        //     day: '2-digit',
+        //     month: '2-digit',
+        //     year: 'numeric'
+        // });
+        this.date = dateObj;
     }
 
     deposit(amount, manualDate) {
