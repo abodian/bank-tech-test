@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676896704549" clover="3.2.0">
-  <project timestamp="1676896704549" name="All files">
-    <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1" elements="7" coveredelements="6" complexity="0" loc="5" ncloc="5" packages="1" files="2" classes="2"/>
+<coverage generated="1676901258890" clover="3.2.0">
+  <project timestamp="1676901258890" name="All files">
+    <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3" elements="11" coveredelements="11" complexity="0" loc="8" ncloc="8" packages="1" files="2" classes="2"/>
     <file name="bankAccount.js" path="/Users/abod/MA/MA-Projects/practice-tect-tests/bank-tech-test/src/bankAccount.js">
-      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
     </file>
     <file name="transaction.js" path="/Users/abod/MA/MA-Projects/practice-tect-tests/bank-tech-test/src/transaction.js">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
